@@ -89,6 +89,7 @@ function App() {
     if (total > 0) {
       awaitAll(total, fetchData);
     }
+  // eslint-disable-next-line
   }, [total]);
 
   const downloadData = () => {
@@ -118,16 +119,14 @@ function App() {
           <h2>Nhập token</h2>
           <input
             type="text"
-            onChange={val => setToken(val)}
+            onChange={e => setToken(e.target.value)}
             value={token}
             placeholder="Nhập token ở đây"
           ></input>
           <button type="button" onClick={downloadData}>
             Tải file excel
           </button>
-          {
-            loading && <div>Loading...</div>
-          }
+          {loading && <div>Loading...</div>}
         </header>
       </div>
     </>
